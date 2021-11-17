@@ -18,16 +18,8 @@ class LED8x8():
 
   #pattern=(~pattern & 0b11111111)
 
-  col= [
-    0b11000011,
-    0b10111101,
-    0b01011010,
-    0b10000001,
-    0b01011010,
-    0b01100110,
-    0b10111101,
-    0b11000011]
-    
+
+
   '''col = [
     0b01111111,
     0b10111111,
@@ -63,7 +55,7 @@ class LED8x8():
     self.shifter=Shifter(data,latch,clock)
     
   def setPattern(self, num):
-    self.shifter.shiftByte( LED8x8.col[num] )#load the row values
+    self.shifter.shiftByte( (~LED8x8.pattern[num] & 0b11111111) )#load the row values
     self.shifter.shiftByte(LED8x8.pattern[num])#load the col values
     self.shifter.latch()
 
