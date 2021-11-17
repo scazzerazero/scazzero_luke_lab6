@@ -7,15 +7,7 @@ dataPin, latchPin, clockPin = 23, 24, 25 #input data, send data, load data
 
 theLED8x8= LED8x8(dataPin, latchPin, clockPin)
 
-row = [
-  0b10000000,
-  0b01000000,
-  0b00100000,
-  0b00010000,
-  0b00001000,
-  0b00000100,
-  0b00000010,
-  0b00000001 ]
+row = [0,1,2,3,4,5,6,7]
 # Simple demonstration of the LED8x8 class.
 # to define the GPIO pins, since LED8x8 is
 # pin-agnostic).
