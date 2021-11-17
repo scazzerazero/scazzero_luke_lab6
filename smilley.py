@@ -37,7 +37,7 @@ class LED8x8():
     0b11011111,
     0b10111111,
     0b01111111]'''
-  col =[
+  '''col =[
     0b10000000,
     0b01000000,
     0b00100000,
@@ -45,7 +45,7 @@ class LED8x8():
     0b00001000,
     0b00000100,
     0b00000010,
-    0b00000001]
+    0b00000001]'''
 
   'sequentially sends 8 pairs of bytes to a Shifter object'
 
