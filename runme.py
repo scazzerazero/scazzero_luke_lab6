@@ -15,7 +15,7 @@ while True:
   try:
     for n in range(8):
       theLED8x8.setPattern(n)
-      time.sleep(0.01)
+      time.sleep(0.001)
   except KeyboardInterrupt:
     print("\nExiting!")
     GPIO.cleanup()
