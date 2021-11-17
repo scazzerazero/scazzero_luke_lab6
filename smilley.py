@@ -15,8 +15,8 @@ class LED8x8():
     while True:
       try:
         for idx in range(8):
-          self.Shifter.shiftByte(pattern[idx]) #shiftByte acceprts a byte
           self.Shifter.shiftByte(row_I[idx])
+          self.Shifter.shiftByte(pattern[idx]) #shiftByte acceprts a byte
           time.sleep(0.01)
       except KeyboardInterrupt:
         print("\nExiting!")
