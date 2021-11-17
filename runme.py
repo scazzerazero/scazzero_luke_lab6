@@ -14,8 +14,8 @@ row = [0,1,2,3,4,5,6,7]
 
 while True:
   try:
-    for n in range(len(row)):
-      theLED8x8.setPattern(row(n))
+    for n in range(8):
+      theLED8x8.setPattern(n)
       time.sleep(0.4)
   except KeyboardInterrupt:
     print("\nExiting!")
