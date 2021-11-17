@@ -20,7 +20,7 @@ class LED8x8():
 
 
 
-  col = [
+  '''col = [
     0b01111111,
     0b10111111,
     0b11011111,
@@ -28,7 +28,7 @@ class LED8x8():
     0b11110111,
     0b11111011,
     0b11111101,
-    0b11111110]
+    0b11111110]'''
 
   '''col =[
     0b11111110,
@@ -39,7 +39,7 @@ class LED8x8():
     0b11011111,
     0b10111111,
     0b01111111]'''
-  '''col =[
+  col =[
     0b10000000,
     0b01000000,
     0b00100000,
@@ -47,7 +47,7 @@ class LED8x8():
     0b00001000,
     0b00000100,
     0b00000010,
-    0b00000001]'''
+    0b00000001]
 
   'sequentially sends 8 pairs of bytes to a Shifter object'
 
@@ -55,7 +55,7 @@ class LED8x8():
     self.shifter=Shifter(data,latch,clock)
     
   def setPattern(self, num):
-    self.shifter.shiftByte(LED8x8.pattern[num])  #load the col values
+    self.shifter.shiftByte(~LED8x8.pattern[num] & 0b11111111)  #load the col values
     self.shifter.shiftByte( LED8x8.col[num] )    #load the row values
 
     self.shifter.latch()
