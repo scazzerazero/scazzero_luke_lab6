@@ -34,7 +34,7 @@ class LED8x8():
     self.shifter=Shifter(data,latch,clock)
     
   def setPattern(self, num):
-    self.shifter.shiftByte( LED8x8.pattern[num]) )#load the row values
+    self.shifter.shiftByte( LED8x8.pattern[num] )#load the row values
     self.shifter.shiftByte(LED8x8.col[num])#load the col values
     self.shifter.latch()
 
