@@ -32,7 +32,7 @@ class LED8x8():
     
   def setPattern(self, num):
     self.shifter.shiftByte(LED8x8.pattern[num])#load the row values
-    self.shifter.shiftBytle(LED8x8.row[num])
+    self.shifter.shiftByte(LED8x8.row[num])
     self.shifter.latch()
 
 #to run this LED8x8(dataPin,latchPin,clockPin)
