@@ -30,7 +30,7 @@ class LED8x8():
   def setPattern(self, num):
     #self.shifter.shiftByte(~LED8x8.pattern[num] & 0b11111111)  #load the col values
     self.shifter.shiftByte(~LED8x8.pattern[num] & 0b11111111)  #load the col values
-    self.shifter.shiftByte( 1 >> num )    #load the row values 0b00000001, then 0b00000010, etc...
+    self.shifter.shiftByte( 1 << num )    #load the row values 0b00000001, then 0b00000010, etc...
 
     self.shifter.latch()
 
