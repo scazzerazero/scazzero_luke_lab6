@@ -1,6 +1,6 @@
 
 import time
-from smilley import LED8x8
+from displayClass import LED8x8
 import RPi.GPIO as GPIO #for cleanup()
 
 dataPin, latchPin, clockPin = 23, 24, 25 #input data, send data, load data

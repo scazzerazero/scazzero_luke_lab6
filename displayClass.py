@@ -1,5 +1,5 @@
 import time
-from shifter import Shifter #from shifter.py import Shifter class. Extended by compositon
+from shifterClass import Shifter #from shifter.py import Shifter class. Extended by compositon
 
 
 
