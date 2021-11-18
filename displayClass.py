@@ -40,7 +40,7 @@ class LED8x8():
   def firefly(self):
     # change by adding random number between -1 and 1. IF statement to restrict to boundaries to 8.
     
-    numRow=3
+    numRow=5
     numCol=3
     
     self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
