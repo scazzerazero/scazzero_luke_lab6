@@ -58,19 +58,19 @@ class LED8x8():
   0b00000000,
   0b00000000,
   0b00000000]
-'''  col = [
-  0b11111111,
-  0b11111111,
-  0b11111111,
-  0b11111111,
-  0b11111111,
-  0b11111111,
-  0b11111111,
-  0b11111111]'''
+  '''  col = [
+    0b11111111,
+    0b11111111,
+    0b11111111,
+    0b11111111,
+    0b11111111,
+    0b11111111,
+    0b11111111,
+    0b11111111]'''
 
 
 
-  'sequentially sends 8 pairs of bytes to a Shifter object'
+  #'sequentially sends 8 pairs of bytes to a Shifter object'
 
   def __init__(self,data,latch,clock):  
     self.shifter=Shifter(data,latch,clock)
