@@ -58,14 +58,14 @@ class LED8x8(multiprocessing.Process):
       
   def firefly(self, pattern):
     for num in range(8):
-      self.shifter.shiftByte(~LED8x8.pattern[num]) #load col values
-      self.shifter.shiftByte(LED8x8.pattern[num]) #load row values
+      self.shifter.shiftByte(~LED8x8.pattern[num]) #load col values. using tilda because diode things
+      self.shifter.shiftByte(1<<num) #load the row values 0b00000001, then 0b00000010, etc...
       self.shifter.latch() #send to output
       time.sleep(0.0030)
 
     
   def setPattern(self, num): #used for smiley
-    self.shifter.shiftByte(~LED8x8.pattern[num] & 0b11111111)  #load the col values
+    self.shifter.shiftByte(~LED8x8.pattern[num] & 0b11111111)  #load the col values. 
     self.shifter.shiftByte( 1 << num )    #load the row values 0b00000001, then 0b00000010, etc...
     self.shifter.latch()
 
