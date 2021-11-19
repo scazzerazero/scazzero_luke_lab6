@@ -43,7 +43,7 @@ class LED8x8():
     # change by adding random number between -1 and 1. IF statement to restrict to boundaries to 8.
 
     
-    R=random.randint(-1, 1) # x can be -1, 0, or 1
+    '''R=random.randint(-1, 1) # x can be -1, 0, or 1
     #print("R random= "+str(R))
     if 1<= LED8x8.numRow + R <=8: 
       numRow=LED8x8.numRow + R
@@ -55,9 +55,10 @@ class LED8x8():
     if 1<= LED8x8.numCol+ C <=8: 
       numCol=LED8x8.numCol + C
     else:
-      pass
+      pass'''
 
-   
+    numCol=LED8x8.numCol
+    numRow=LED8x8.numRow
 
     self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
     self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
