@@ -29,7 +29,7 @@ class LED8x8(multiprocessing.Process):
 
 
 #Notes from TA: if i use multiprocessing.array then. initiating 8 arrays. each time you run it updates your 8 arrays based on whatever x and y youre using. Next array will come by changing row[]. 
-  pattern = multiprocessing.Array('j',8) 
+  pattern = multiprocessing.Array('i',8) 
   #define 8 patterns. multiprocessing will update and use these.
   pattern[0] = 0b00000000
   pattern[1] = 0b00000000
