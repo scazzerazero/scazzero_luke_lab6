@@ -15,13 +15,14 @@ theLED8x8= LED8x8(dataPin, latchPin, clockPin) #create object from led8x8 class
 while True:
   try:
     p = multiprocessing.Process(target=theLED8x8.firefly)
-    p.daemon = True # Force process termination when main code ends
     p.start()        # Start the process (only once!)
 
 
 
-  except KeyboardInterrupt:
+  except Exception as e:
+    p.daemon = True # Force process termination when main code ends
     print("\nExiting!")
+    print(e)
     p.terminate()    # Terminate the process (no equivalent for threads)
     #   (always 'join' after termination)
     p.join(2)        # Pause the calling process for up to n seconds to let
