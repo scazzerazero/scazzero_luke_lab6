@@ -55,6 +55,7 @@ class LED8x8(multiprocessing.Process):
       self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
       self.shifter.latch() #send to output
       time.sleep(0.10)''' #from V1
+      
   def firefly(self, pattern):
     for num in range(8):
       self.shifter.shiftByte(~LED8x8.pattern[num]) #load col values

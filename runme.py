@@ -40,7 +40,7 @@ while True:
     
     for i in range(len(theLED8x8.pattern)):
       theLED8x8.pattern[i]=0b00000000
-    theLED8x8.pattern[numCol] = 1 << numCol #throw a 1 into the mix and move it around.
+    theLED8x8.pattern[numCol] = 1 << numRow #throw a 1 into the mix and move it around.
     time.sleep(0.1)
 
     theLED8x8.firefly(theLED8x8.pattern)
