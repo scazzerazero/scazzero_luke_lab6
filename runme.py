@@ -40,8 +40,8 @@ while True:
       pass
     
     #for loop to iterate through multiprocessing array
-    for num in range(len(theLED8x8.pattern)):
-      theLED8x8.pattern[num]=0b00000000
+    for i in range(len(theLED8x8.pattern)):
+      theLED8x8.pattern[i]=0b00000000
 
     theLED8x8.pattern[numRow] = 1 << numCol #throw a 1 into the array mix and move it around randomly
     time.sleep(0.1)
