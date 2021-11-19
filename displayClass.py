@@ -57,9 +57,6 @@ class LED8x8():
     else:
       pass
 
-
-    numRow=self.numRow
-    numCol=self.numCol
    
 
     self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
