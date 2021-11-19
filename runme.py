@@ -28,8 +28,8 @@ else:
 while True:
   try:
     
-    numRow=1
-    numCol=1
+    numRow=2
+    numCol=3
     coord=[numRow,numCol]
     p = multiprocessing.Process(target=theLED8x8.firefly, args=(numRow,numCol,))
     p.daemon = True # Force process termination when main code ends
