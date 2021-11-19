@@ -52,11 +52,13 @@ class LED8x8():
 
     if 1<= numRow <=8: 
       self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
+      print('row passes')
     if 1<= numCol <=8: 
       self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
+      print('col passes')
     
     self.shifter.latch() #send to output
-    time.sleep(1)
+    time.sleep(5)
 
     
     
