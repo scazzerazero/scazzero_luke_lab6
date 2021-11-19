@@ -50,6 +50,7 @@ while True:
     theLED8x8.firefly(theLED8x8.pattern) #finally instantiating the method, being run by multiprocessing
     
     theLED8x8.daemon() ## Force process termination when main code ends
+    theLED8x8.terminate()    # Terminate the process (no equivalent for threads)
     #   (always 'join' after termination)
     theLED8x8.join()
     
@@ -60,9 +61,9 @@ while True:
 
   except KeyboardInterrupt:
     print("\nExiting!")
-    p.terminate()    # Terminate the process (no equivalent for threads)
+    theLED8x8.terminate()    # Terminate the process (no equivalent for threads)
     #   (always 'join' after termination)
-    p.join(2)        # Pause the calling process for up to n seconds to let
+    theLED8x8.join(2)        # Pause the calling process for up to n seconds to let
     #   the process to end, then join even if not ended
     GPIO.cleanup()
     break
