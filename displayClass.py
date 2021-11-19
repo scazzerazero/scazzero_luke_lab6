@@ -44,8 +44,7 @@ class LED8x8():
     self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
     self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
     self.shifter.latch() #send to output
-
-    time.sleep(1)
+    time.sleep(10)
 
     
     
