@@ -36,15 +36,25 @@ class LED8x8():
     self.shifter=Shifter(data,latch,clock)
     #in order to get a separate process to launch as soon as LED8x8 class is instantiated
 
+#if i use multiprocessing.array then. initiating 8 arrays. each time you run it updates your 8 arrays based on whatever x and y youre using. Next array will come by changing row[]. 
 
   def firefly(self):
     # change by adding random number between -1 and 1. IF statement to restrict to boundaries to 8.
-    
-    numRow=5
-    numCol=3
-    
-    self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
-    self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
+    numRow=8 
+    numCol=8
+    '''x=random.randint(-1, 1) # x can be -1, 0, or 1
+    numRow=numRow + x
+    x=random.randint(-1, 1) # x can be -1, 0, or 1
+    numCol=numCol + x'''
+
+ 
+   
+
+    if 1<= numRow <=8: 
+      self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
+    if 1<= numCol <=8: 
+      self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
+    time.sleep(1)
     self.shifter.latch() #send to output
     
     
