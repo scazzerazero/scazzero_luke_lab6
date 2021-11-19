@@ -11,10 +11,27 @@ theLED8x8= LED8x8(dataPin, latchPin, clockPin) #create object from led8x8 class
 # Simple demonstration of the LED8x8 class.
 # to define the GPIO pins, since LED8x8 is
 # pin-agnostic).
-
+    
+'''R=random.randint(-1, 1) # x can be -1, 0, or 1
+#print("R random= "+str(R))
+if 1<= LED8x8.numRow + R <=8: 
+  numRow=LED8x8.numRow + R
+else:
+  pass
+C=random.randint(-1, 1) # x can be -1, 0, or 1
+#print("C random= "+str(C))
+#print("")
+if 1<= LED8x8.numCol+ C <=8: 
+  numCol=LED8x8.numCol + C
+else:
+  pass'''
 while True:
   try:
-    p = multiprocessing.Process(target=theLED8x8.firefly)
+    
+    numRow=1
+    numCol=1
+    coord=[numRow,numCol]
+    p = multiprocessing.Process(target=theLED8x8.firefly, args=(coord,))
     p.daemon = True # Force process termination when main code ends
     p.start()        # Start the process (only once!)
 
