@@ -28,7 +28,7 @@ class LED8x8():
     0b00000001
   ]
  
-  numRow=8 
+  numRow=2
   numCol=8
 
   #'sequentially sends 8 pairs of bytes to a Shifter object'
