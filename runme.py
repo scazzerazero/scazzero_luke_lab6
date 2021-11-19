@@ -49,7 +49,7 @@ while True:
 
     theLED8x8.firefly(theLED8x8.pattern) #finally instantiating the method, being run by multiprocessing
     
-    theLED8x8.daemon() ## Force process termination when main code ends
+    #theLED8x8.daemon() ## Force process termination when main code ends
     theLED8x8.terminate()    # Terminate the process (no equivalent for threads)
     #   (always 'join' after termination)
     theLED8x8.join()
