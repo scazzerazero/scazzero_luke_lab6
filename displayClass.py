@@ -57,8 +57,7 @@ class LED8x8():
     else:
       pass
 
-    print("numRow= "+ str(numRow))
-    print("numCol= "+ str(numCol))
+
     numRow=self.numRow
     numCol=self.numCol
    
