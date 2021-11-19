@@ -45,15 +45,15 @@ class LED8x8():
     
     R=random.randint(-1, 1) # x can be -1, 0, or 1
     #print("R random= "+str(R))
-    if 1<= self.numRow + R <=8: 
-      numRow=self.numRow + R
+    if 1<= LED8x8.numRow + R <=8: 
+      numRow=LED8x8.numRow + R
     else:
       pass
     C=random.randint(-1, 1) # x can be -1, 0, or 1
     #print("C random= "+str(C))
     #print("")
-    if 1<= self.numCol+ C <=8: 
-      numCol=self.numCol + C
+    if 1<= LED8x8.numCol+ C <=8: 
+      numCol=LED8x8.numCol + C
     else:
       pass
 
