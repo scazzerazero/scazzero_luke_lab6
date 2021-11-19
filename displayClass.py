@@ -50,11 +50,17 @@ class LED8x8(multiprocessing.Process):
     self.shifter=Shifter(data,latch,clock)
 
 
-  def firefly(self,numRow,numCol): #will light up a single value given the x,y coord as arguments
-    self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
-    self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
-    self.shifter.latch() #send to output
-    time.sleep(0.10)
+  '''def firefly(self,numRow,numCol): #will light up a single value given the x,y coord. From v1
+      self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
+      self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
+      self.shifter.latch() #send to output
+      time.sleep(0.10)''' #from V1
+  def firefly(self, pattern):
+    for i in range(8):
+      self.shifter.shiftByte(~LED8x8.pattern[i]) #load col values
+      self.shifter.shiftByte(LED8x8.pattern[i]) #load row values
+      self.shifter.latch() #send to output
+      time.sleep(0.10)
 
     
     
