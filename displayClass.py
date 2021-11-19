@@ -60,7 +60,7 @@ class LED8x8(multiprocessing.Process):
       self.shifter.shiftByte(~LED8x8.pattern[i]) #load col values
       self.shifter.shiftByte(LED8x8.pattern[i]) #load row values
       self.shifter.latch() #send to output
-      time.sleep(0.10)
+      time.sleep(0.0010)
 
     
     
