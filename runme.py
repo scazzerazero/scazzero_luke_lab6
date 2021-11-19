@@ -39,7 +39,7 @@ while True:
       pass
     
     for i in range(len(theLED8x8.pattern)):
-      theLED8x8.pattern[numRow]=0b00000000
+      theLED8x8.pattern[i]=0b00000000
     theLED8x8.pattern[numCol] = 1 << numCol #throw a 1 into the mix and move it around.
     time.sleep(0.1)
 
@@ -53,7 +53,7 @@ while True:
     theLED8x8.terminate() #Terminate the process (no equivalent for threads)
     #   (always 'join' after termination)
     theLED8x8.join()
-
+    
   except KeyboardInterrupt:
     print("\nExiting!")
     p.terminate()    # Terminate the process (no equivalent for threads)
