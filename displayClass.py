@@ -28,7 +28,8 @@ class LED8x8():
     0b00000001
   ]
  
-
+  numRow=8 
+  numCol=8
 
   #'sequentially sends 8 pairs of bytes to a Shifter object'
 
@@ -40,25 +41,31 @@ class LED8x8():
 
   def firefly(self):
     # change by adding random number between -1 and 1. IF statement to restrict to boundaries to 8.
-    numRow=9 
-    numCol=8
-    '''x=random.randint(-1, 1) # x can be -1, 0, or 1
-    numRow=numRow + x
-    x=random.randint(-1, 1) # x can be -1, 0, or 1
-    numCol=numCol + x'''
-
 
     
+    x=random.randint(-1, 1) # x can be -1, 0, or 1
 
-    if 1<= numRow <=8: 
-      self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
-      print('row passes')
-    if 1<= numCol <=8: 
-      self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
-      print('col passes')
+    if 1<= self.numRow + x <=8: 
+      numRow=self.numRow + x
+    else:
+      pass
+
+    x=random.randint(-1, 1) # x can be -1, 0, or 1
+
+    if 1<= self.numCol + x <=8:
+      numCol =self.numCol+x
+    else:
+      pass
+
+   
+
+    self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
+    print('row passes')
+    self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
+    print('col passes')
     
     self.shifter.latch() #send to output
-    time.sleep(5)
+    time.sleep(1)
 
     
     
