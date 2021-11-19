@@ -27,33 +27,37 @@ while True:
       numCol=numCol + C
     else:
       pass''' #from V1
+    #RANDOM WALK. not optimized for V2 but still will work:
     R=random.randint(-1, 1) # R can be -1, 0, or 1
-    if 0<= numRow + R <=7: 
+    if 1 - 1<= numRow + R <=8 - 1: 
       numRow=numRow + R
     else:
       pass
     C=random.randint(-1, 1) # C can be -1, 0, or 1
-    if 0<= numCol+ C <=7: 
+    if 1 - 1 <= numCol+ C <= 8 - 1: 
       numCol=numCol + C
     else:
       pass
     
-    for i in range(len(theLED8x8.pattern)):
-      theLED8x8.pattern[i]=0b00000000
-    theLED8x8.pattern[numCol] = 1 << numRow #throw a 1 into the mix and move it around.
+    #for loop to iterate through multiprocessing array
+    for num in range(len(theLED8x8.pattern)):
+      theLED8x8.pattern[num]=0b00000000
+
+    theLED8x8.pattern[numRow] = 1 << numCol #throw a 1 into the array mix and move it around randomly
     time.sleep(0.1)
 
-    theLED8x8.firefly(theLED8x8.pattern)
 
+    theLED8x8.firefly(theLED8x8.pattern) #finally instantiating the method, being run by multiprocessing
+    
+    theLED8x8.daemon() ## Force process termination when main code ends
+    #   (always 'join' after termination)
+    theLED8x8.join()
+    
     '''p = multiprocessing.Process(target=theLED8x8.firefly, args=(numRow,numCol,))
     p.daemon = True # Force process termination when main code ends
     p.start()        # Start the process (only once!)
     p.join()''' #from v1
 
-    theLED8x8.terminate() #Terminate the process (no equivalent for threads)
-    #   (always 'join' after termination)
-    theLED8x8.join()
-    
   except KeyboardInterrupt:
     print("\nExiting!")
     p.terminate()    # Terminate the process (no equivalent for threads)

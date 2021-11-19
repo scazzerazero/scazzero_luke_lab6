@@ -6,7 +6,7 @@ import random
 
 class LED8x8(multiprocessing.Process):
  
-  pattern = [ #used for smiley
+  '''pattern = [ 
     0b00111100, 
     0b01000010, 
     0b10100101, 
@@ -14,9 +14,9 @@ class LED8x8(multiprocessing.Process):
     0b10100101, 
     0b10011001, 
     0b01000010, 
-    0b00111100 ]
+    0b00111100 ]''' # used for smiley
 
-  row = [ #used for version1 (V1)
+  '''row = [ 
     0b10000000,
     0b01000000,
     0b00100000,
@@ -25,11 +25,12 @@ class LED8x8(multiprocessing.Process):
     0b00000100,
     0b00000010,
     0b00000001
-  ]
+  ]''' #used for version1 (V1)
 
 
 #Notes from TA: if i use multiprocessing.array then. initiating 8 arrays. each time you run it updates your 8 arrays based on whatever x and y youre using. Next array will come by changing row[]. 
-  pattern = multiprocessing.Array('i',8) 
+
+  pattern = multiprocessing.Array('num',8) 
   #define 8 patterns. multiprocessing will update and use these.
   pattern[0] = 0b00000000
   pattern[1] = 0b00000000
@@ -43,7 +44,6 @@ class LED8x8(multiprocessing.Process):
  
 
 
-  #'sequentially sends 8 pairs of bytes to a Shifter object'
 
   def __init__(self,data,latch,clock):  
     multiprocessing.Process.__init__(self, name=LED8x8) #in order to get a separate process to launch as soon as LED8x8 class is instantiated
@@ -63,7 +63,6 @@ class LED8x8(multiprocessing.Process):
       self.shifter.latch() #send to output
       time.sleep(0.0010)
 
-    
     
   def setPattern(self, num): #used for smiley
     self.shifter.shiftByte(~LED8x8.pattern[num] & 0b11111111)  #load the col values
