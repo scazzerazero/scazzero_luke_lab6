@@ -31,7 +31,7 @@ while True:
     numRow=1
     numCol=1
     coord=[numRow,numCol]
-    p = multiprocessing.Process(target=theLED8x8.firefly, args=(coord,))
+    p = multiprocessing.Process(target=theLED8x8.firefly, args=(numRow,numCol,))
     p.daemon = True # Force process termination when main code ends
     p.start()        # Start the process (only once!)
 
