@@ -14,10 +14,6 @@ theLED8x8= LED8x8(dataPin, latchPin, clockPin) #create object from led8x8 class
     
 numRow=1
 numCol=1
-p = multiprocessing.Process(target=theLED8x8.firefly, args=(numRow,numCol,))
-p.daemon = True # Force process termination when main code ends
-p.start()        # Start the process (only once!)
-
 while True:
  
   try:
@@ -36,8 +32,10 @@ while True:
     else:
       pass
     
-    p
-
+    p = multiprocessing.Process(target=theLED8x8.firefly, args=(numRow,numCol,))
+    p.daemon = True # Force process termination when main code ends
+    p.start()        # Start the process (only once!)
+    p.join()
 
 
 
