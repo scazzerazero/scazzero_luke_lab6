@@ -28,8 +28,8 @@ class LED8x8():
     0b00000001
   ]
  
-  numRow=2
-  numCol=8
+  numRow=1
+  numCol=1
 
   #'sequentially sends 8 pairs of bytes to a Shifter object'
 
@@ -43,19 +43,23 @@ class LED8x8():
     # change by adding random number between -1 and 1. IF statement to restrict to boundaries to 8.
 
     
-    # x=random.randint(-1, 1) # x can be -1, 0, or 1
+    R=random.randint(-1, 1) # x can be -1, 0, or 1
+    #print("R random= "+str(R))
+    if 1<= self.numRow + R <=8: 
+      numRow=self.numRow + R
+    else:
+      pass
+    C=random.randint(-1, 1) # x can be -1, 0, or 1
+    #print("C random= "+str(C))
+    #print("")
+    if 1<= self.numCol+ C <=8: 
+      numCol=self.numCol + C
+    else:
+      pass
 
-    # if 1<= self.numRow + x <=8: 
-    #   numRow=self.numRow + x
-    # else:
-    #   pass
-
-    # x=random.randint(-1, 1) # x can be -1, 0, or 1
-
-    # if 1<= self.numCol + x <=8:
-    #   numCol =self.numCol+x
-    # else:
-    #   pass
+    #print("numRow= "+ str(numRow))
+    #print("numCol= "+ str(numCol))
+    time.sleep(0.5) 
     numRow=self.numRow
     numCol=self.numCol
    
