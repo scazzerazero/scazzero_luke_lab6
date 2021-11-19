@@ -17,13 +17,23 @@ while True:
  
   try:
     #RANDOM WALK:
-    R=random.randint(-1, 1) # R can be -1, 0, or 1
+    '''R=random.randint(-1, 1) # R can be -1, 0, or 1
     if 1<= numRow + R <=8: 
       numRow=numRow + R
     else:
       pass
     C=random.randint(-1, 1) # C can be -1, 0, or 1
     if 1<= numCol+ C <=8: 
+      numCol=numCol + C
+    else:
+      pass''' #from V1
+    R=random.randint(-1, 1) # R can be -1, 0, or 1
+    if 0<= numRow + R <=7: 
+      numRow=numRow + R
+    else:
+      pass
+    C=random.randint(-1, 1) # C can be -1, 0, or 1
+    if 0<= numCol+ C <=7: 
       numCol=numCol + C
     else:
       pass
