@@ -59,15 +59,12 @@ class LED8x8():
 
     #print("numRow= "+ str(numRow))
     #print("numCol= "+ str(numCol))
-    time.sleep(0.5) 
     numRow=self.numRow
     numCol=self.numCol
    
 
     self.shifter.shiftByte(~LED8x8.row[numRow-1]) #load col values
-    print('row passes')
     self.shifter.shiftByte(LED8x8.row[numCol-1]) #load row values
-    print('col passes')
     
     self.shifter.latch() #send to output
     time.sleep(1)
