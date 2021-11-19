@@ -59,7 +59,7 @@ class LED8x8(multiprocessing.Process):
   def firefly(self, pattern):
     for num in range(8):
       self.shifter.shiftByte(~LED8x8.pattern[num]) #load col values
-      self.shifter.shiftByte(1<<num) #load row values
+      self.shifter.shiftByte(LED8x8.pattern[num]) #load row values
       self.shifter.latch() #send to output
       time.sleep(0.0030)
 
